@@ -2,6 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B0F19">
+<meta name="description" content="Nikhil Krishna PK — Frontend Developer in Kochi, India, building web and mobile apps with React, React Native and TypeScript.">
 <title>Nikhil Krishna PK — Frontend Developer</title>
 <script src="./vendor/react.js"></script>
 <script src="./vendor/react-dom.js"></script>
@@ -137,6 +140,14 @@ a{color:#A5B4FC}a:hover{color:#C7D2FE}
 .photo::after{content:"";position:absolute;inset:0;pointer-events:none;border-radius:50%;background:radial-gradient(circle at var(--gx,30%) var(--gy,20%),rgba(255,255,255,.22),transparent 50%);mix-blend-mode:soft-light}
 @property --sa{syntax:"<angle>";inherits:false;initial-value:0deg}
 @keyframes sunSpin{to{--sa:360deg}}
+
+.cert-h{margin-top:26px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.certs{margin-top:12px;display:grid;gap:10px}
+.certs li{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.certs b{font-size:14.5px;font-weight:600}
+.certs span{font-size:12.5px;color:var(--muted);overflow-wrap:anywhere}
+/* {{value}} text renders inside a <span>; keep label styles off it */
+.fact b span{display:inline;margin:0;font:inherit;letter-spacing:inherit;text-transform:none;color:inherit}
 
 /* cursor */
 .cur-dot,.cur-ring{position:fixed;left:0;top:0;z-index:300;pointer-events:none;border-radius:50%;opacity:0}
@@ -406,8 +417,9 @@ a{color:#A5B4FC}a:hover{color:#C7D2FE}
 a.ci:hover{transform:translateX(6px);border-color:var(--line2);background:rgba(255,255,255,.05)}
 .ci-ic{width:48px;height:48px;flex:none;border-radius:14px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 14%,transparent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);color:var(--accentText);transition:transform .5s cubic-bezier(.34,1.56,.64,1)}
 a.ci:hover .ci-ic{transform:rotate(-10deg) scale(1.06)}
-.ci span:not(.ci-ic){display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.ci b{display:block;margin-top:2px;font-size:15.5px;font-weight:600;word-break:break-word}
+.ci>span:not(.ci-ic){min-width:0}
+.ci>span:not(.ci-ic)>span{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ci b{display:block;margin-top:2px;font-size:15.5px;font-weight:600;overflow-wrap:anywhere}
 .ci .ar{margin-left:auto;color:var(--muted);transition:transform .4s var(--ease),color .3s}
 a.ci:hover .ar{transform:translate(3px,-3px);color:var(--ink)}
 .form-card{position:relative;padding:38px;border-radius:30px;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0) 40%),var(--card);border:1px solid var(--line2);box-shadow:0 60px 120px -60px rgba(0,0,0,.9)}
@@ -487,7 +499,7 @@ a.ci:hover .ar{transform:translate(3px,-3px);color:var(--ink)}
 @media (max-width:1100px){.hl-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:1024px){
 .hero-grid,.about-grid,.contact-grid,.edu-grid{grid-template-columns:minmax(0,1fr)}
-.hero{padding-top:130px}
+.hero{min-height:auto;padding-top:130px}
 .visual{--vs:420px;margin-top:40px}
 .about-grid{gap:48px}
 .g-mobile{grid-column:span 12;grid-row:auto}.g-frontend,.g-backend,.g-testing,.g-tools{grid-column:span 6}
@@ -499,10 +511,18 @@ a.ci:hover .ar{transform:translate(3px,-3px);color:var(--ink)}
 @media (max-width:640px){
 .wrap{padding:0 16px}
 .sec{padding:92px 0}
-.hero{padding:116px 0 96px}
+.hero{min-height:auto;padding:112px 0 32px}
+.eyebrow{font-size:10.5px;letter-spacing:.1em;padding:7px 14px 7px 11px}
+.hero h1{font-size:clamp(34px,10vw,42px)}
+.hero-role{font-size:18px}
+.code-body{font-size:11px;line-height:1.9}
+.cl .n{width:34px;padding-right:12px}
 .hero-sub{font-size:16px}
 .ctas .btn{flex:1 1 auto}
-.visual{--vs:min(62vw,250px);margin:56px auto 40px}
+.visual{--vs:min(80vw,310px);margin:44px auto 16px}
+.sun{width:calc(var(--vs)*.48);height:calc(var(--vs)*.48);margin:calc(var(--vs)*-.24) 0 0 calc(var(--vs)*-.24)}
+.hx-o1{width:calc(var(--vs)*.86);height:calc(var(--vs)*.86);--r:calc(var(--vs)*.43)}
+.hx-o2 .planet{display:none}
 .orb-chip{font-size:11.5px;padding:5px 10px 5px 5px;gap:7px}
 .orb-chip .mono{width:22px;height:22px;font-size:9.5px}
 .socials-label{flex-basis:100%;margin:4px 0 0}
@@ -1029,8 +1049,8 @@ html{scroll-behavior:auto}
   <div class="wrap">
     <div class="foot-top rv">
       <div class="foot-brand">
-        <a class="brand" href="#home"><span class="brand-mark">{{initials}}</span><span>{{name}}<small>Mobile Application Developer | React Native Developer</small></span></a>
-        <p>Building cross-platform mobile apps that feel fast, intuitive and reliable.</p>
+        <a class="brand" href="#home"><span class="brand-mark">{{initials}}</span><span>{{name}}<small>Frontend Developer</small></span></a>
+        <p>Building clean, responsive web and mobile apps that feel fast and reliable.</p>
       </div>
       <nav class="foot-nav" aria-label="Footer">
         <sc-for list="{{nav}}" as="item" hint-placeholder-count="6"><a href="{{item.href}}">{{item.label}}</a></sc-for>
